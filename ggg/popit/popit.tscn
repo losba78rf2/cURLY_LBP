@@ -1,0 +1,283 @@
+[gd_scene load_steps=21 format=3 uid="uid://b0ootlgiwxupt"]
+
+[ext_resource type="Script" uid="uid://b3ml0wv6ekvhg" path="res://popit/popit.gd" id="1_5c8i7"]
+[ext_resource type="FontFile" uid="uid://c2h5to1iotyu0" path="res://Popit.ttf" id="1_ysnmh"]
+[ext_resource type="Script" uid="uid://bcasdek0ek6xc" path="res://popit/popitbutton.gd" id="2_jjdjv"]
+[ext_resource type="FontFile" uid="uid://dspxv8bm021vk" path="res://popit/Core Bandi Face W01 Regular.ttf" id="3_k20yc"]
+[ext_resource type="Texture2D" uid="uid://cbkbmpn14dplu" path="res://popit/tttytr.png" id="3_v38uw"]
+[ext_resource type="StyleBox" uid="uid://dw5170r1ljqp1" path="res://popit/lilbrut.tres" id="4_acvl1"]
+[ext_resource type="Theme" uid="uid://dxr0be78u3437" path="res://popit/newbutton.tres" id="4_hjf0u"]
+[ext_resource type="Script" uid="uid://2v5sqg26i478" path="res://popit/panel.gd" id="4_owmu1"]
+[ext_resource type="Script" uid="uid://djijj54kcqkxy" path="res://popit/material_button.gd" id="5_a1mjx"]
+[ext_resource type="Script" uid="uid://csyh0v0x7o6qc" path="res://popit/items_grid.gd" id="5_hjf0u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysnmh"]
+bg_color = Color(0, 0.25103414, 0.61330384, 0.28235295)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.039215688, 0.6784314, 0.9411765, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 15
+expand_margin_left = 1.0
+expand_margin_top = 2.0
+shadow_color = Color(0.26173934, 0.65947294, 0.9618121, 0.6)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_owmu1"]
+bg_color = Color(0.48235294, 0.7411765, 0.22745098, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_k20yc"]
+Panel/styles/panel = SubResource("StyleBoxFlat_owmu1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aoys3"]
+bg_color = Color(0.48235294, 0.7411765, 0.22745098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+shadow_color = Color(0, 0.8039216, 1, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, -0.67)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjf0u"]
+
+[sub_resource type="Theme" id="Theme_owmu1"]
+default_font = ExtResource("1_ysnmh")
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 56
+Button/styles/focus = SubResource("StyleBoxEmpty_hjf0u")
+Button/styles/hover = ExtResource("4_acvl1")
+Button/styles/normal = ExtResource("4_acvl1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5c8i7"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_hjf0u"]
+font = ExtResource("1_ysnmh")
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_owmu1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k20yc"]
+font = ExtResource("1_ysnmh")
+font_size = 26
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Popit" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -99.0
+offset_right = 99.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ysnmh")
+script = ExtResource("1_5c8i7")
+
+[node name="Highlight" type="Control" parent="Popit"]
+layout_mode = 2
+
+[node name="HighLight" type="Panel" parent="Popit/Highlight"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(28, 28)
+theme = SubResource("Theme_k20yc")
+script = ExtResource("4_owmu1")
+
+[node name="PanelContainer" type="PanelContainer" parent="Popit/Highlight"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.080000006
+anchor_right = 0.5
+anchor_bottom = -0.080000006
+offset_left = -51.0
+offset_top = -32.480007
+offset_right = 60.0
+offset_bottom = -5.479888
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aoys3")
+
+[node name="HighlightName" type="Label" parent="Popit/Highlight/PanelContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_k20yc")
+theme_override_font_sizes/font_size = 17
+text = "$namennnn"
+horizontal_alignment = 1
+
+[node name="Tttytr" type="Sprite2D" parent="Popit/Highlight/PanelContainer"]
+top_level = true
+position = Vector2(578, 215.56041)
+scale = Vector2(0.07011074, 0.056373686)
+texture = ExtResource("3_v38uw")
+
+[node name="HardcodeBackButton" type="Control" parent="Popit"]
+visible = false
+layout_mode = 2
+
+[node name="Go back" type="Button" parent="Popit/HardcodeBackButton" groups=["SmallerButton"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -14.0
+offset_top = -24.0
+offset_right = 25.0
+offset_bottom = 14.0
+grow_horizontal = 0
+theme = SubResource("Theme_owmu1")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "q"
+script = ExtResource("2_jjdjv")
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="MainPage" type="GridContainer" parent="Popit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Customization" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_fonts/font = ExtResource("1_ysnmh")
+theme_override_font_sizes/font_size = 96
+text = "K"
+script = ExtResource("2_jjdjv")
+
+[node name="SwagBag" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "a"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Enviroment" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "8"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Favorites" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "9"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Lasso" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "h"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Stickers" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "o"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Chat" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "7"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="IDK SMART THINGS" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "b"
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Camera" type="Button" parent="Popit/MainPage" groups=["MainButton"]]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "."
+script = ExtResource("2_jjdjv")
+PopitPage = 2
+metadata/_custom_type_script = "uid://bcasdek0ek6xc"
+
+[node name="Container" type="VBoxContainer" parent="Popit"]
+visible = false
+layout_mode = 2
+
+[node name="NameOfPage" type="Label" parent="Popit/Container"]
+layout_mode = 2
+text = "SwagBag"
+label_settings = SubResource("LabelSettings_5c8i7")
+
+[node name="--" type="Label" parent="Popit/Container"]
+layout_mode = 2
+text = "–––––"
+label_settings = SubResource("LabelSettings_hjf0u")
+
+[node name="Label" type="Label" parent="Popit/Container"]
+layout_mode = 2
+text = "FUNCTIONS"
+label_settings = SubResource("LabelSettings_owmu1")
+
+[node name="--2" type="Label" parent="Popit/Container/Label"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 316.0
+offset_bottom = 41.0
+text = "‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐‐"
+label_settings = SubResource("LabelSettings_k20yc")
+
+[node name="MaterialButton" type="Button" parent="Popit/Container"]
+layout_mode = 2
+theme = ExtResource("4_hjf0u")
+text = "h"
+alignment = 0
+script = ExtResource("5_a1mjx")
+
+[node name="ItemsGrid" type="GridContainer" parent="Popit/Container"]
+layout_mode = 2
+script = ExtResource("5_hjf0u")
