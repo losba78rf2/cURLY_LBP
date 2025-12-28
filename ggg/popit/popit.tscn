@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0ootlgiwxupt"]
+[gd_scene load_steps=24 format=3 uid="uid://b0ootlgiwxupt"]
 
 [ext_resource type="Script" uid="uid://b3ml0wv6ekvhg" path="res://popit/popit.gd" id="1_5c8i7"]
 [ext_resource type="FontFile" uid="uid://c2h5to1iotyu0" path="res://Popit.ttf" id="1_ysnmh"]
@@ -9,22 +9,21 @@
 [ext_resource type="Theme" uid="uid://dxr0be78u3437" path="res://popit/newbutton.tres" id="4_hjf0u"]
 [ext_resource type="Script" uid="uid://2v5sqg26i478" path="res://popit/panel.gd" id="4_owmu1"]
 [ext_resource type="Script" uid="uid://djijj54kcqkxy" path="res://popit/material_button.gd" id="5_a1mjx"]
+[ext_resource type="Script" uid="uid://53e4x75d8nkc" path="res://popit/polygon_2d.gd" id="5_aoys3"]
 [ext_resource type="Script" uid="uid://csyh0v0x7o6qc" path="res://popit/items_grid.gd" id="5_hjf0u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysnmh"]
 bg_color = Color(0, 0.25103414, 0.61330384, 0.28235295)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.039215688, 0.6784314, 0.9411765, 1)
-border_blend = true
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0627451, 0.5764706, 0.8156863, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 15
-expand_margin_left = 1.0
 expand_margin_top = 2.0
 shadow_color = Color(0.26173934, 0.65947294, 0.9618121, 0.6)
 shadow_size = 5
@@ -72,6 +71,14 @@ font_size = 61
 [sub_resource type="LabelSettings" id="LabelSettings_k20yc"]
 font = ExtResource("1_ysnmh")
 font_size = 26
+
+[sub_resource type="Curve" id="Curve_aoys3"]
+_data = [Vector2(0.10638299, 0.79775286), 0.0, 0.0, 0, 0, Vector2(0.10638299, 0.79775286), 0.0, -5.7033706, 0, 1]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_fuxev"]
+interpolation_mode = 2
+colors = PackedColorArray(0.011764706, 0.36862746, 0.48235294, 1, 0.011764706, 0.36862746, 0.48235294, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -132,6 +139,12 @@ offset_bottom = -5.479888
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aoys3")
 
+[node name="Polygon2D" type="Polygon2D" parent="Popit/Highlight/PanelContainer"]
+color = Color(0.48235294, 0.7411765, 0.22745098, 1)
+invert_border = 0.1
+polygon = PackedVector2Array(39, 12.520004, 54, -18.755, 70, 12.520004)
+script = ExtResource("5_aoys3")
+
 [node name="HighlightName" type="Label" parent="Popit/Highlight/PanelContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_k20yc")
@@ -140,6 +153,7 @@ text = "$namennnn"
 horizontal_alignment = 1
 
 [node name="Tttytr" type="Sprite2D" parent="Popit/Highlight/PanelContainer"]
+visible = false
 top_level = true
 position = Vector2(578, 215.56041)
 scale = Vector2(0.07011074, 0.056373686)
@@ -281,3 +295,12 @@ script = ExtResource("5_a1mjx")
 [node name="ItemsGrid" type="GridContainer" parent="Popit/Container"]
 layout_mode = 2
 script = ExtResource("5_hjf0u")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(479, 410, 378, 448, 369, 455, 367, 485, 395, 518, 627, 594, 699, 631, 741, 649, 766, 681)
+width_curve = SubResource("Curve_aoys3")
+default_color = Color(0.00579706, 0.34547803, 0.4883774, 1)
+gradient = SubResource("Gradient_fuxev")
+joint_mode = 2
+end_cap_mode = 2
+sharp_limit = 0.0
